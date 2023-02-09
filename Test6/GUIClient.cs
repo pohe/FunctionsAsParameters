@@ -8,6 +8,7 @@ namespace Test6
 {
     public class GUIClient
     {
+        //familie medlem 1
         // Rest of class omitted for brevity
 
         public void TemperatureHasChanged(double temperature)

@@ -8,8 +8,11 @@ namespace Test6
 {
     public class TemperatureMonitor
     {
+        //Den gravide kvinde
+
         private static double _temperature;
 
+        //Action<Double>
         public event Action<double> TemperatureChanged;
 
         public TemperatureMonitor()
@@ -39,7 +42,7 @@ namespace Test6
         }
 
         private void OnTemperatureChanged()
-        {
+        { //Når barnet fødes - eller ændringer sker
             TemperatureChanged?.Invoke(_temperature);
         }
     }

@@ -14,9 +14,13 @@ namespace Test6
 
             GUIClient client = new GUIClient();
             GUIClient2 client2 = new GUIClient2();
+            Watch ur = new Watch();
 
+            //Skriv dig op på en liste
             monitor.TemperatureChanged += client.TemperatureHasChanged;
             monitor.TemperatureChanged += client2.Temperature2Changed;
+            monitor.TemperatureChanged += ur.ShowTemp;
+
             for (int i = 0; i < 10; i++)
             {
                 monitor.MonitorDevice();

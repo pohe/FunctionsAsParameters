@@ -22,13 +22,16 @@ namespace Test4
             carsList.Add(c2);
             carsList.Add(c3);
 
-            string licensePlate = "CJ 32 802";
+            string licensePlate = "XJ 20 013";
             int priceSearch = 100;
-            
-            
-
 
             Predicate<Car> carMatchFunc = (Car c) => { return c.Price == priceSearch; };
+
+            // Predicate < Car > carMatchFunc = (Car c) => { return c.Price == priceSearch; };
+            //Predicate<Car> carMatchFunc = CarPriceMatch;
+
+            carMatchFunc = (Car c) => { return c.LicensePlate == licensePlate; };
+
             Car matchCar = carsList.Find(carMatchFunc);
             if (matchCar != null)
             {
@@ -48,7 +51,66 @@ namespace Test4
             else
                 Console.WriteLine($"Car with licenseplate {licensePlate} does not exist!");
 
+            //carsList.Sort(delegate (Car x, Car y) {
+            //    if (x.Price < y.Price)
+            //        return -1;
+            //    else if (x.Price == y.Price)
+            //        return 0;
+            //    else return 1;
+            //});
+
+            carsList.Sort((Car x, Car y) =>
+            {
+                if (x.Price < y.Price)
+                    return -1;
+                else if (x.Price == y.Price)
+                    return 0;
+                else return 1;
+            });
+
+            foreach (Car car in carsList)
+            {
+                Console.WriteLine(car);
+            }
+
+
+
+
+            matchCar = carsList.Find( c  =>  c.Price == priceSearch );
+            if (matchCar != null)
+            {
+                Console.WriteLine($"Car with {priceSearch} does exist");
+            }
+            else
+                Console.WriteLine($"Car with price {priceSearch} does not exist!");
+
+
+            matchCar = carsList.Find(c => c.LicensePlate == licensePlate);
+            if (matchCar != null)
+            {
+                Console.WriteLine($"Car with {licensePlate} does exist");
+            }
+            else
+                Console.WriteLine($"Car with licenseplate {licensePlate} does not exist!");
+
+
+
+
+            bool CarPriceMatch(Car c)
+            {
+                return c.Price == priceSearch;
+            }
+
+            bool CarLicensPlateMatch(Car c)
+            {
+                return c.LicensePlate == licensePlate;
+            }
+
+
         }
+
+        
+        
 
     }
 }

@@ -8,10 +8,11 @@ namespace Test6
 {
     class GUIClient2
     {
-        
-            // Rest of class omitted for brevity
 
-            public void Temperature2Changed(double temperature)
+        //familie medlem 2
+        // Rest of class omitted for brevity
+
+        public void Temperature2Changed(double temperature)
             {
                 Console.WriteLine("Current temperature GUI2 : " + temperature);
             }

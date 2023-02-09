@@ -25,7 +25,7 @@ namespace Test4
 
         public override string ToString()
         {
-            return $"Car with licenseplate {_licensePlate}";
+            return $"Car with licenseplate {_licensePlate} price {_price}";
         }
     }
 }
